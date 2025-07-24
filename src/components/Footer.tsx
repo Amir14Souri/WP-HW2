@@ -7,12 +7,14 @@ const Footer = ({ shapes }: { shapes: Shape[] }) => {
   }, {} as Record<ShapeType, number>);
 
   return (
-    <div className="p-2 bg-gray-200 text-sm flex gap-4">
-      {Object.entries(counts).map(([type, count]) => (
-        <div key={type}>
-          {type}: {count}
-        </div>
-      ))}
+    <div className="p-2 bg-gray-200 text-sm flex gap-4 min-h-10">
+      {Object.keys(counts).length
+        ? Object.entries(counts).map(([type, count]) => (
+            <div key={type}>
+              {type}: {count}
+            </div>
+          ))
+        : "Canvas is empty!"}
     </div>
   );
 };
