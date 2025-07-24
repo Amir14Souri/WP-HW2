@@ -28,7 +28,7 @@ const App = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "drawing.json";
+    a.download = title + ".json";
     a.click();
   };
 
@@ -39,6 +39,7 @@ const App = () => {
       setShapes(data);
     };
     reader.readAsText(file);
+    setTitle(file.name.split(".json")[0]);
   };
 
   return (

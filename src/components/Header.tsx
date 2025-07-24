@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 type Props = {
   title: string;
   setTitle: (v: string) => void;
@@ -6,6 +8,12 @@ type Props = {
 };
 
 const Header = ({ title, setTitle, onExport, onImport }: Props) => {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImportClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <div className="p-2 bg-blue-100 flex items-center justify-between">
       <input
@@ -17,10 +25,17 @@ const Header = ({ title, setTitle, onExport, onImport }: Props) => {
         <button className="px-3 py-1 bg-green-200 rounded" onClick={onExport}>
           Export
         </button>
+        <button
+          className="px-3 py-1 bg-green-200 rounded"
+          onClick={handleImportClick}>
+          Import
+        </button>
         <input
+          ref={fileInputRef}
           type="file"
           accept="application/json"
           onChange={(e) => e.target.files?.[0] && onImport(e.target.files[0])}
+          className="hidden"
         />
       </div>
     </div>
