@@ -8,7 +8,7 @@ import type { Shape, ShapeType } from "./types/shapes";
 const App = () => {
   const [shapes, setShapes] = useState<Shape[]>([]);
   const [selectedShape, setSelectedShape] = useState<ShapeType | null>(null);
-  const [title, setTitle] = useState("نقاشی من");
+  const [title, setTitle] = useState("MyPainting");
 
   const addShape = (x: number, y: number) => {
     if (!selectedShape) return;
@@ -42,7 +42,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen w-screen">
       <Header
         title={title}
         setTitle={setTitle}
@@ -50,7 +50,7 @@ const App = () => {
         onImport={handleImport}
       />
       <div className="flex flex-1 overflow-hidden">
-        <Sidebar onSelect={setSelectedShape} />
+        <Sidebar currentShape={selectedShape} onSelect={setSelectedShape} />
         <Canvas shapes={shapes} onAdd={addShape} onRemove={removeShape} />
       </div>
       <Footer shapes={shapes} />
