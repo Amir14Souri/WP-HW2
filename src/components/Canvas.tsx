@@ -11,9 +11,10 @@ const Canvas = ({
   onRemove: (id: string) => void;
 }) => {
   const handleClick = (e: React.MouseEvent) => {
+    if (e.target != e.currentTarget) return;
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const x = e.clientX - rect.left - 20;
+    const y = e.clientY - rect.top - 20;
     onAdd(x, y);
   };
 
