@@ -10,7 +10,7 @@ const Sidebar = ({
   onSelect: (s: ShapeType) => void;
 }) => {
   return (
-    <div className="w-28 p-2 bg-gray-100 space-y-2">
+    <div className="w-28 p-2 bg-blue-500 space-y-2">
       {shapes.map((s) => (
         <button
           key={s}

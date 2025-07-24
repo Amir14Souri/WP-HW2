@@ -15,18 +15,20 @@ const Header = ({ title, setTitle, onExport, onImport }: Props) => {
   };
 
   return (
-    <div className="p-2 bg-blue-100 flex items-center justify-between">
+    <div className="p-2 bg-blue-800 flex items-center justify-between text-white">
       <input
-        className="p-1 border rounded"
+        className="p-1 border-2 rounded bg-blue-700"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <div className="flex gap-2">
-        <button className="px-3 py-1 bg-green-200 rounded" onClick={onExport}>
+        <button
+          className="px-3 py-1 bg-violet-400 hover:bg-violet-500 rounded"
+          onClick={onExport}>
           Export
         </button>
         <button
-          className="px-3 py-1 bg-green-200 rounded"
+          className="px-3 py-1 bg-violet-400 hover:bg-violet-500 rounded"
           onClick={handleImportClick}>
           Import
         </button>

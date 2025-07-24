@@ -20,19 +20,19 @@ const Canvas = ({
 
   return (
     <div
-      className="flex-1 relative bg-white border overflow-auto"
+      className="flex-1 relative bg-zinc-50 overflow-auto"
       onClick={handleClick}>
       {shapes.map((s) => (
         <div
           key={s.id}
           onDoubleClick={() => onRemove(s.id)}
+          className="bg-violet-400"
           style={{
             position: "absolute",
             left: s.x,
             top: s.y,
             width: 40,
             height: 40,
-            backgroundColor: "skyblue",
             borderRadius: s.type === "circle" ? "50%" : undefined,
             clipPath:
               s.type === "triangle"
